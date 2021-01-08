@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forever 2020</title>
+  <style>
+    body {
+      background-color: #2a2b2b;
+      color: white;
+    }
+
+    #main {
+      margin-top: 5rem;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 120%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .spacer {
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="main" class="hidden">
+  <h2>Today is actually <span id="dateActual"></span></h2>
+  <div class="spacer"></div>
+  <h3>It also feels like</h3>
+  <p>December <span id="decemberAddOn"></span>, 2020</p>
+</div>
+
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script>
+  const today = dayjs();
+  const lastOf2020 = dayjs("2020-12-31T23:59:59");
+
+  document.getElementById("dateActual").innerHTML = today.format("MMM D, YYYY");
+  document.getElementById("decemberAddOn").innerHTML = today.diff(lastOf2020, 'day') + 32;
+
+  document.getElementById("main").classList.remove("hidden");
+</script>
+
+</body>
+</html>
